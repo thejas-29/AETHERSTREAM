@@ -23,6 +23,8 @@ import {
   Info
 } from 'lucide-react';
 
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 export default function App() {
   const [token, setToken] = useState(localStorage.getItem('token'));
   const [user, setUser] = useState(() => {
@@ -80,7 +82,7 @@ function AuthScreen({ onAuthSuccess }) {
       const endpoint = isLogin ? '/api/login' : '/api/register';
       const payload = isLogin ? { username, password } : { username, password, role };
       
-      const response = await fetch(`http://localhost:5000${endpoint}`, {
+      const response = await fetch(`${API_BASE}${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -241,8 +243,8 @@ function Dashboard({ token, currentUser, onLogout }) {
     try {
       const headers = { 'Authorization': `Bearer ${token}` };
       const [metricsRes, forecastRes] = await Promise.all([
-        fetch('http://localhost:5000/api/metrics', { headers }),
-        fetch('http://localhost:5000/api/forecast', { headers })
+        fetch(`${API_BASE}/api/metrics`, { headers }),
+        fetch(`${API_BASE}/api/forecast`, { headers })
       ]);
 
       if (!metricsRes.ok) {
@@ -272,7 +274,7 @@ function Dashboard({ token, currentUser, onLogout }) {
     setError('');
     setSuccess('');
     try {
-      const response = await fetch('http://localhost:5000/api/system/seed', {
+      const response = await fetch(`${API_BASE}/api/system/seed`, {
         method: 'POST'
       });
       const data = await response.json();
@@ -292,7 +294,7 @@ function Dashboard({ token, currentUser, onLogout }) {
     setIsSubmittingTx(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/transactions', {
+      const response = await fetch(`${API_BASE}/api/transactions`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -329,7 +331,7 @@ function Dashboard({ token, currentUser, onLogout }) {
     setSuccess('');
     
     try {
-      const response = await fetch(`http://localhost:5000/api/transactions/${id}`, {
+      const response = await fetch(`${API_BASE}/api/transactions/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
