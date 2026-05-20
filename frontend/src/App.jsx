@@ -118,7 +118,7 @@ function AuthScreen({ onAuthSuccess }) {
           <div className="bg-gradient-to-br from-indigo-500 to-indigo-700 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-indigo-400/30 shadow-lg shadow-indigo-500/20 rotate-3 hover:rotate-6 transition-transform duration-300">
             <Activity className="text-white w-8 h-8 animate-pulse" />
           </div>
-          <h1 className="text-3xl font-extrabold text-white tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-200 bg-clip-text text-transparent">Antigravity BI</h1>
+          <h1 className="text-3xl font-extrabold text-white tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-200 bg-clip-text text-transparent">AETHERSTREAM BI</h1>
           <p className="text-indigo-400/80 mt-2 text-sm font-semibold uppercase tracking-wider">Enterprise Analytical Portal</p>
         </div>
 
@@ -661,7 +661,7 @@ function Dashboard({ token, currentUser, onLogout }) {
               <Activity className="text-white w-5 h-5" />
             </div>
             <div>
-              <span className="font-black text-xl text-white tracking-tight">Antigravity</span>
+              <span className="font-black text-xl text-white tracking-tight">AETHERSTREAM</span>
               <span className="text-[10px] text-indigo-400 font-bold block leading-none">BUSINESS INTELLIGENCE</span>
             </div>
           </div>

@@ -15,8 +15,8 @@ app = Flask(__name__)
 CORS(app)
 
 # Configuration
-app.config['SECRET_KEY'] = 'super-secret-antigravity-key-change-in-prod'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///antigravity.db'
+app.config['SECRET_KEY'] = 'super-secret-aetherstream-key-change-in-prod'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///aetherstream.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
